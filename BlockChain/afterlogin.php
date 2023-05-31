@@ -1,0 +1,112 @@
+<!-- logout php -->
+<?php 
+
+session_start();
+
+if (isset($_SESSION['id']) && isset($_SESSION['email'])) {
+
+?>
+
+
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="index.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+<body>
+
+<!-- Navigation -->
+<nav class="w3-bar w3-black">
+  <a href="#home" class="w3-button w3-bar-item">Home</a>
+  <a href="darslar.html" class="w3-button w3-bar-item">Darslar</a>
+  <center><a class="w3-button w3-bar-item">Hello <?php echo $_SESSION['email']; ?></a></center>
+  <div class="logt"> <a href="index.html" class="w3-button w3-bar-item">LogOut</a> </div>
+</nav>
+<style> .logt{ margin-left: 93%; } </style>
+
+
+
+<!-- body qismi start -->
+
+
+
+
+<!-- Slide Show -->
+<section>
+    
+  <img class="mySlides" src="images/blockchain1.jpg"
+  style="width:100%" height="700px">
+  <img class="mySlides" src="images/blockchain2.jpg"
+  style="width:100%" height="700px">
+  <img class="mySlides" src="images/blockchain3.jpg"
+  style="width:100%" height="700px">
+  
+</section>
+
+<!-- Band Description -->
+<section class="w3-container w3-center w3-content" style="max-width:600px">
+  <h2 class="w3-wide">Blockchain nima?</h2>
+  <p class="w3-justify">Blokcheyn - bu kompyuter tarmog'ining tugunlari o'rtasida taqsimlangan ma'lumotlar bazasi yoki daftar. Ular tranzaktsiyalarning xavfsiz va markazlashtirilmagan rekordini saqlab qolish uchun kriptovalyuta tizimlaridagi hal qiluvchi roli bilan mashhur, ammo ular kriptovalyutadan foydalanish bilan cheklanmaydi. Blokcheynlar har qanday sohadagi ma'lumotlarni o'zgarmas qilish uchun ishlatilishi mumkin - bu atama o'zgartirish mumkin emasligini tasvirlash uchun ishlatiladi.</p>
+</section>
+
+<!-- Band Members -->
+<section class="w3-row-padding w3-center w3-light-grey">
+  <article class="w3-third">
+    <p>Block Chain qanday ishlaydi</p>
+    <img src="images/blockchain1.jpg" alt="Random Name" style="width:100%" height="300px">
+    <p>Blokcheyn odatda ma'lumotlar bazasida bajarishingiz mumkin bo'lgan vazifalarni bajaradigan skriptlar deb nomlangan dasturlardan iborat: ma'lumotni kiritish va unga kirish, uni biror joyda saqlash va saqlash . Blokcheyn tarqatiladi, ya'ni bir nechta nusxalar ko'plab mashinalarda saqlanadi va uning haqiqiy bo'lishi uchun ularning barchasi mos kelishi kerak</p>
+  </article>
+  <article class="w3-third">
+    <p>Block Chain va Bitcoin</p>
+    <img src="images/blockchain2.jpg" alt="Random Name" style="width:100%" height="300px">
+    <p>Bitcoin protokoli blokcheyn asosida qurilgan. Bitkoinning taxallusli yaratuvchisi Satoshi Nakamoto raqamli valyutani tanishtiruvchi tadqiqot maqolasida uni “toʻliq tengdoshga, ishonchli uchinchi shaxsga ega boʻlmagan yangi elektron pul tizimi” deb atagan.
+      3</p>
+  </article>
+  <article class="w3-third">
+    <p>Block Chain va Banklar</p>
+    <img src="images/blockchain3.jpg" alt="Random Name" style="width:100%" height="300px">
+    <p>Blokcheynlar moliya sektorida, ayniqsa to'lovlar va bank funktsiyalari bilan buzuvchi kuch sifatida e'lon qilingan. Biroq, banklar va markazlashmagan blokcheynlar juda farq qiladi.</p>
+  </article>
+</section>
+
+<!-- Footer -->
+<footer class="w3-container w3-padding-64 w3-center w3-black w3-xlarge" id="about">
+  <a href="#"><i class="fa fa-facebook-official"></i></a>
+  <a href="#"><i class="fa fa-pinterest-p"></i></a>
+  <a href="#"><i class="fa fa-twitter"></i></a>
+  <a href="#"><i class="fa fa-flickr"></i></a>
+  <a href="#"><i class="fa fa-linkedin"></i></a>
+  <p class="w3-medium">
+  </p>
+</footer>
+
+<script>
+// Automatic Slideshow - change image every 3 seconds
+var myIndex = 0;
+carousel();
+
+function carousel() {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  for (i = 0; i < x.length; i++) {
+     x[i].style.display = "none";
+  }
+  myIndex++;
+  if (myIndex > x.length) {myIndex = 1}
+  x[myIndex-1].style.display = "block";
+  setTimeout(carousel, 4000);
+}
+</script>
+
+</body>
+</html>
+
+<?php 
+
+// logout php
+}else{
+    header("Location: login.html");
+    exit();
+}
+?>
